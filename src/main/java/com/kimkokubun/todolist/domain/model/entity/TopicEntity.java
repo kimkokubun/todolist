@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-public class TaskEntity {
+public class TopicEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,11 +20,11 @@ public class TaskEntity {
     @Column(name = "label", nullable = false)
     private String label;
 
-    @Column(name = "color", columnDefinition = "varchar(20) default '#ffffff'")
-    private String color;
+    @Column(name = "up_votes", columnDefinition = "int default 0")
+    private int upVotes;
 
-    @Column(name = "priority", columnDefinition = "int default 0")
-    private int priority;
+    @Column(name = "donw_votes", columnDefinition = "int default 0")
+    private int downVotes;
 
     @Column(name = "user_created")
     private String userCreated;
@@ -46,13 +46,14 @@ public class TaskEntity {
     @Column(name = "deleted_at")
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime deletedAt;
-    public TaskEntity(Long id, String name, String description, String label, String color, int priority, String userCreated, LocalDateTime createdAt, String userUpdate, LocalDateTime updatedAt, String userDelete, LocalDateTime deletedAt) {
+
+    public TopicEntity(Long id, String name, String description, String label, int upVotes, int downVotes, String userCreated, LocalDateTime createdAt, String userUpdate, LocalDateTime updatedAt, String userDelete, LocalDateTime deletedAt) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.label = label;
-        this.color = color;
-        this.priority = priority;
+        this.upVotes = upVotes;
+        this.downVotes = downVotes;
         this.userCreated = userCreated;
         this.createdAt = createdAt;
         this.userUpdate = userUpdate;
@@ -61,6 +62,6 @@ public class TaskEntity {
         this.deletedAt = deletedAt;
     }
 
-    public TaskEntity() {
+    public TopicEntity() {
     }
 }

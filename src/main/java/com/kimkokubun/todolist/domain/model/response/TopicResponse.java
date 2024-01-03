@@ -1,13 +1,13 @@
-package com.kimkokubun.todolist.domain.model.request;
+package com.kimkokubun.todolist.domain.model.response;
 
-import java.time.LocalDateTime;
+public class TopicResponse extends HistoricResponse {
 
-public class TaskRequest {
     String name;
     String description;
     String label;
     String color;
     Integer priority;
+    HistoricResponse historicResponse;
 
     public String getName() {
         return name;
@@ -47,5 +47,13 @@ public class TaskRequest {
 
     public void setPriority(Integer priority) {
         this.priority = priority;
+    }
+
+    public HistoricResponse getHistoricResponse() {
+        return historicResponse;
+    }
+
+    public void setHistoricResponse(HistoricResponse historicResponse) {
+        this.historicResponse = historicResponse;
     }
 }

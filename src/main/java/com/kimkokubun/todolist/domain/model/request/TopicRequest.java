@@ -1,13 +1,11 @@
-package com.kimkokubun.todolist.domain.model.response;
+package com.kimkokubun.todolist.domain.model.request;
 
-public class TaskResponse extends HistoricResponse {
-
+public class TopicRequest {
     String name;
     String description;
     String label;
     String color;
     Integer priority;
-    HistoricResponse historicResponse;
 
     public String getName() {
         return name;
@@ -47,13 +45,5 @@ public class TaskResponse extends HistoricResponse {
 
     public void setPriority(Integer priority) {
         this.priority = priority;
-    }
-
-    public HistoricResponse getHistoricResponse() {
-        return historicResponse;
-    }
-
-    public void setHistoricResponse(HistoricResponse historicResponse) {
-        this.historicResponse = historicResponse;
     }
 }
