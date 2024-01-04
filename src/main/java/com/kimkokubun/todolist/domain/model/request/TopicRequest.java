@@ -6,6 +6,10 @@ public class TopicRequest {
     String label;
     String color;
     Integer priority;
+    Integer upvote;
+    Integer dwvote;
+
+
 
     public String getName() {
         return name;
@@ -45,5 +49,11 @@ public class TopicRequest {
 
     public void setPriority(Integer priority) {
         this.priority = priority;
+    }
+
+    public Integer getUpvote() {return upvote;}
+
+    public Integer getDwvote() {
+        return dwvote;
     }
 }
