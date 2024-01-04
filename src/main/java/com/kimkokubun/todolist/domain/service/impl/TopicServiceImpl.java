@@ -14,7 +14,7 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public TopicResponse addTask(TopicRequest task) {
         TopicResponse topicResponse = new TopicResponse();
-        topicResponse.setName(task.getName());
+        topicResponse.setName(task.getName() + "Caranga");
         topicResponse.setDescription(task.getDescription());
         topicResponse.setColor(task.getColor());
         topicResponse.setPriority(task.getPriority());
