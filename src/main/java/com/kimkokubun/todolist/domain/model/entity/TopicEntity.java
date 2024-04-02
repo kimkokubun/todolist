@@ -1,11 +1,18 @@
 package com.kimkokubun.todolist.domain.model.entity;
 
 
+import com.kimkokubun.todolist.domain.model.response.HistoricResponse;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class TopicEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +26,12 @@ public class TopicEntity {
 
     @Column(name = "label", nullable = false)
     private String label;
+
+    @Column(name = "color")
+    private String color;
+
+    @Column(name = "priority", nullable = false)
+    private Integer priority;
 
     @Column(name = "up_votes", columnDefinition = "int default 0")
     private int upVotes;
@@ -47,21 +60,12 @@ public class TopicEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime deletedAt;
 
-    public TopicEntity(Long id, String name, String description, String label, int upVotes, int downVotes, String userCreated, LocalDateTime createdAt, String userUpdate, LocalDateTime updatedAt, String userDelete, LocalDateTime deletedAt) {
+
+    public TopicEntity(Long id, String name, String label) {
         this.id = id;
         this.name = name;
-        this.description = description;
         this.label = label;
-        this.upVotes = upVotes;
-        this.downVotes = downVotes;
-        this.userCreated = userCreated;
-        this.createdAt = createdAt;
-        this.userUpdate = userUpdate;
-        this.updatedAt = updatedAt;
-        this.userDelete = userDelete;
-        this.deletedAt = deletedAt;
     }
 
-    public TopicEntity() {
-    }
 }
+
